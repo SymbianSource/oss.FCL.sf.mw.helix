@@ -10,7 +10,6 @@
 			<module name="helix">
 				<unit unitID="helix" mrp="" bldFile="&layer_real_source_path;/group" filter="!sf_build" name="helix" />
 				<unit unitID="helix_src" mrp="" bldFile="&layer_real_source_path;/helix_ren/src/group" filter="!sf_build" name="helix_src" />
-				<unit unitID="ng_helix_src" mrp="" bldFile="&layer_real_source_path;/helix_ren/ng_helix/src/group" filter="!sf_build" name="ng_helix_src" />
 				<unit unitID="helix_stub" mrp="" bldFile="&layer_real_source_path;/helix_ren/helix_stub/group" filter="sf_build" name="helix_stub" />
 			</module>
     </layer>
@@ -40,7 +39,6 @@
 			<module name="helix_group">
 				<unit unitID="helix_group" mrp="" bldFile="&layer_real_source_path;/group" filter="!sf_build" name="helix_group" />
 				<unit unitID="helix_src_group" mrp="" bldFile="&layer_real_source_path;/helix_ren/src/group" filter="!sf_build" name="helix_src_group" />
-				<unit unitID="ng_helix_src_group" mrp="" bldFile="&layer_real_source_path;/helix_ren/ng_helix/src/group" filter="!sf_build" name="ng_helix_src_group" />
 				<unit unitID="helix_stub_group" mrp="" bldFile="&layer_real_source_path;/helix_ren/helix_stub/group" filter="sf_build" name="helix_stub_group" /> 
 			</module>
     </layer>
