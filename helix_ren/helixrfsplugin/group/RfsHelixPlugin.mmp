@@ -28,9 +28,9 @@ UID 0x10009D8D 0x10207471
 
 SOURCEPATH  ../src
 SOURCE      RfsHelixPlugin.cpp 
-SOURCE      proxy.cpp
+SOURCE      Proxy.cpp
 
-START RESOURCE 10207471.RSS
+START RESOURCE 10207471.rss
 #ifdef SYMBIAN_SECURE_ECOM 
   TARGET RfsHelixPlugin.rsc
 #endif 
