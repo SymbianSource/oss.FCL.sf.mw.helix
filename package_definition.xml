@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SystemDefinition schema="3.0.0">
+  <package id="sf:helix" name="Helix" levels="plugin framework server generic specific">
+    <collection id="sf:helix_ren" name="Helix Engine" level="framework">
+      <component id="sf:helix_ren_build" filter="s60" name="Helix Engine Build" introduced="^2">
+       <unit bldFile="helix_ren/group"/>
+      </component>
+      <component id="helix_stub" filter="sf_build" name="Helix Stub" class="api" introduced="^2">
+        <unit bldFile="helix_ren/helix_stub/group"/>
+      </component>
+      <component id="helixrfsplugin" filter="s60" name="Helix RFS Plugin" class="plugin" introduced="^2">
+        <unit bldFile="helix_ren/helixrfsplugin/group"/>
+      </component>
+    </collection>
+  </package>
+</SystemDefinition>
