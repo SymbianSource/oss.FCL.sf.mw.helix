@@ -3,44 +3,19 @@
   <!ENTITY layer_real_source_path "sf/mw/helix" >
 ]> 
 
-<SystemDefinition name="avdomain" schema="1.4.0">
+<SystemDefinition name="helix" schema="1.4.0">
 	<systemModel>
   <!-- Common file for prebuild layers-->
   	<layer name="mw_layer">
 			<module name="helix">
 				<unit unitID="helix" mrp="" bldFile="&layer_real_source_path;/group" filter="!sf_build" name="helix" />
-				<unit unitID="helix_src" mrp="" bldFile="&layer_real_source_path;/helix_ren/src/group" filter="!sf_build" name="helix_src" />
-				<unit unitID="ng_helix_src" mrp="" bldFile="&layer_real_source_path;/helix_ren/ng_helix/src/group" filter="!sf_build" name="ng_helix_src" />
 				<unit unitID="helix_stub" mrp="" bldFile="&layer_real_source_path;/helix_ren/helix_stub/group" filter="sf_build" name="helix_stub" />
-			</module>
-    </layer>
-
-   	<layer name="api_test_layer">
-			<module name="helix_tsrc">
-				<unit unitID="helix_tsrc" name="helix_tsrc" bldFile="&layer_real_source_path;/tsrc/group" mrp="" />
-			</module>
-    </layer>
-
-   	<layer name="module_test_layer">
-			<module name="helix_ren_tsrc">
-				<unit unitID="helix_ren_tsrc" name="helix_ren_tsrc" bldFile="&layer_real_source_path;/helix_ren/tsrc/helixstiftest/group" mrp="" />
-			</module>
-    </layer>
-
-   	<layer name="pref_test_layer">
-			<module name="helix_tsrc_group">
-				<unit unitID="helix_tsrc_group" name="helix_tsrc_group" bldFile="&layer_real_source_path;/tsrc/group" mrp="" filter="TA_HELIX" />
-			</module>
-			<module name="helix_ren_tsrc_group">
-				<unit unitID="helix_ren_tsrc_group" name="helix_ren_tsrc_group" bldFile="&layer_real_source_path;/helix_ren/tsrc/helixstiftest/group" mrp="" filter="TA_HELIX_REN" />
 			</module>
     </layer>
 
   	<layer name="mw_helix_layer">
 			<module name="helix_group">
 				<unit unitID="helix_group" mrp="" bldFile="&layer_real_source_path;/group" filter="!sf_build" name="helix_group" />
-				<unit unitID="helix_src_group" mrp="" bldFile="&layer_real_source_path;/helix_ren/src/group" filter="!sf_build" name="helix_src_group" />
-				<unit unitID="ng_helix_src_group" mrp="" bldFile="&layer_real_source_path;/helix_ren/ng_helix/src/group" filter="!sf_build" name="ng_helix_src_group" />
 				<unit unitID="helix_stub_group" mrp="" bldFile="&layer_real_source_path;/helix_ren/helix_stub/group" filter="sf_build" name="helix_stub_group" /> 
 			</module>
     </layer>
