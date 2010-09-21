@@ -30,27 +30,27 @@ EPOCSTACKSIZE   0x5000             //20KB
 EPOCHEAPSIZE    0x100000 0x1000000 //1MB-16MB
 
 START RESOURCE  consoleplayer_reg.rss
-TARGETPATH 	    \private\10003a3f\apps
+TARGETPATH 	    /private/10003a3f/apps
 END 
 
-USERINCLUDE     ..\..\common
-USERINCLUDE     ..\inc
-USERINCLUDE     ..\src\mmf
+USERINCLUDE     ../../common
+USERINCLUDE     ../inc
+USERINCLUDE     ../src\mmf
 
-SOURCEPATH      ..\..\common
+SOURCEPATH      ../../common
 SOURCE          testappbase.cpp
 SOURCE          timercallback.cpp
 
-SOURCEPATH      ..\src
+SOURCEPATH      ../src
 SOURCE          consoleplayer.cpp
 SOURCE          playerwindow.cpp
 
-SOURCEPATH      ..\src\mmf
+SOURCEPATH      ../src/mmf
 SOURCE          mmfplayerwindow.cpp
 
 MW_LAYER_SYSTEMINCLUDE
-SYSTEMINCLUDE   \epoc32\include
-SYSTEMINCLUDE   \epoc32\include\stdapis
+SYSTEMINCLUDE   /epoc32/include
+SYSTEMINCLUDE   /epoc32/include/stdapis
 
 LIBRARY         euser.lib
 LIBRARY         efsrv.lib
@@ -58,7 +58,7 @@ LIBRARY         mediaclientvideo.lib
 LIBRARY	        gce.lib 
 LIBRARY         ws32.lib 
 LIBRARY         gdi.lib
-LIBRARY		    fntstr.lib
+LIBRARY		      fntstr.lib
 LIBRARY         fbscli.lib
 LIBRARY         estor.lib 
 LIBRARY         ecom.lib
@@ -80,14 +80,14 @@ LIBRARY         remconinterfacebase.lib
 
 #ifdef FF_OPENMAX_AL
 
-SYSTEMINCLUDE   \epoc32\include\platform\mw\khronos
+SYSTEMINCLUDE   /epoc32/include/platform/mw/khronos
 
-USERINCLUDE  ..\src\openmax_al
-SOURCEPATH   ..\src\openmax_al
+USERINCLUDE  ../src/openmax_al
+SOURCEPATH   ../src/openmax_al
 
 SOURCE       opmaxplayerwindow.cpp
 SOURCE       openmaxplayerutility.cpp
-LIBRARY      openmaxal.lib
+LIBRARY      hxopenmaxal.lib
 LIBRARY      libc.lib
 
 #endif

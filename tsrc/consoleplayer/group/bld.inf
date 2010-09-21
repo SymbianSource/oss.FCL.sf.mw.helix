@@ -13,5 +13,5 @@
 
 PRJ_MMPFILES
 
-#include "..\player\group\bld.inf"
-#include "..\thumbnail\group\bld.inf"
+#include "../player/group/bld.inf"
+#include "../thumbnail/group/bld.inf"

@@ -1,3 +1,21 @@
+/*
+ * Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ * All rights reserved.
+ * This component and the accompanying materials are made available
+ * under the terms of "Eclipse Public License v1.0"
+ * which accompanies this distribution, and is available
+ * at the URL "http://www.eclipse.org/legal/epl-v10.html".
+ *
+ * Initial Contributors:
+ * Nokia Corporation - initial contribution.
+ *
+ * Contributors:
+ *
+ * Description:
+ * Source file for the main class of the ConsolePlayer test app.
+ *
+ */
+
 #include "opmaxplayerwindow.h"
 #include "openmaxplayerutility.h"
 
@@ -11,7 +29,7 @@ const TInt KMMFBalanceMaxLeft = -100;
 const TInt KMMFBalanceMaxRight = 100;
 #endif
 
-COpMaxPlayerWindow* COpMaxPlayerWindow::NewL( RFs& aFs, 
+COpMaxPlayerWindow* COpMaxPlayerWindow::NewL( RFs& aFs,
                                           RWsSession& aWs,
                                           CWsScreenDevice& aScreenDevice,
                                           const RWindowTreeNode &aParentWindow,
@@ -25,16 +43,16 @@ COpMaxPlayerWindow* COpMaxPlayerWindow::NewL( RFs& aFs,
     CleanupStack::PushL( self );
     self->ConstructL( aParentWindow, aTopRight, aSize, aTransparent, aBackgroundColor );
     CleanupStack::Pop();
-    return self;   
+    return self;
     }
-    
+
 COpMaxPlayerWindow::COpMaxPlayerWindow( RFs& aFs, RWsSession& aWs, CWsScreenDevice& aScreenDevice, bool aSuppressGraphicsContext ) :
     CPlayerWindow( aFs, aWs, aScreenDevice, aSuppressGraphicsContext )
-    {    
+    {
     }
 
 COpMaxPlayerWindow::~COpMaxPlayerWindow()
-    {    
+    {
     delete iVideoPlayer;
     }
 
@@ -47,17 +65,17 @@ void COpMaxPlayerWindow::ConstructL( const RWindowTreeNode &aParentWindow, TPoin
     }
 
 
-void COpMaxPlayerWindow::InitializeParameters( TSize& aVideoSize, 
-                                             TTimeIntervalMicroSeconds& aDuration, 
-                                             TInt& aMaxVolume, 
+void COpMaxPlayerWindow::InitializeParameters( TSize& aVideoSize,
+                                             TTimeIntervalMicroSeconds& aDuration,
+                                             TInt& aMaxVolume,
                                              TInt& aCurrentVolume,
                                              TInt& aBalanceCenter,
                                              TInt& aBalanceMaxLeft,
                                              TInt& aBalanceMaxRight,
-                                             TInt& aDefaultBalance, 
+                                             TInt& aDefaultBalance,
                                              TInt& aCurrentBalance )
     {
-    iVideoPlayer->VideoFrameSize(aVideoSize);               
+    iVideoPlayer->VideoFrameSize(aVideoSize);
     aDuration = iVideoPlayer->Duration();
     aMaxVolume = iVideoPlayer->MaxVolume();
     aCurrentVolume = iVideoPlayer->Volume();
@@ -83,15 +101,15 @@ void COpMaxPlayerWindow::SetDefaultAutoscaleMode( TAutoscaleMode aDefaultAutosca
             break;
         }
     iDefaultAutoScale = iAutoScale;
-    iVideoPlayer->SetAutoScale(iWindow, iAutoScale);                        
-    }    
+    iVideoPlayer->SetAutoScale(iWindow, iAutoScale);
+    }
 
 void COpMaxPlayerWindow::PreparePlayerWithFile( RFile& aFile )
     {
     TFileName fileName;
     aFile.FullName(fileName);
     iVideoPlayer->OpenFile(fileName);
-    
+
     // Now wait for MvpuoOpenComplete callback.
     PlayInitiated();
     }
@@ -99,8 +117,8 @@ void COpMaxPlayerWindow::PreparePlayerWithFile( RFile& aFile )
 void COpMaxPlayerWindow::PreparePlayerWithUrl( const TDesC& aUrl )
     {
     iVideoPlayer->OpenFile(aUrl);
-    
-    // Now wait for MvpuoOpenComplete callback.            
+
+    // Now wait for MvpuoOpenComplete callback.
     }
 
 TInt COpMaxPlayerWindow::DoExecuteOperation( TInt /*aOperation*/ )
@@ -188,7 +206,7 @@ TInt COpMaxPlayerWindow::NextAutoscaleMode()
         case EAutoScaleStretch:
             iAutoScale = EAutoScaleNone;
             break;
-        }     
+        }
     iVideoPlayer->SetAutoScale(iWindow, iAutoScale);
     return 0;
     }
@@ -282,11 +300,11 @@ TInt COpMaxPlayerWindow::SetPlayVelocity( TInt aVelocity )
 void COpMaxPlayerWindow::MvpuoOpenComplete(TInt aError)
     {
     RDebug::Printf( "CONSOLEPLAYER MvpuoOpenComplete(%i)", aError );
-    
+
     if( aError == KErrNone )
         {
         iVideoPlayer->Prepare();
-    
+
         // Now wait for MvpuoPrepareComplete callback.
         }
     else
@@ -298,7 +316,7 @@ void COpMaxPlayerWindow::MvpuoOpenComplete(TInt aError)
 void COpMaxPlayerWindow::MvpuoPrepareComplete(TInt aError)
     {
     RDebug::Printf( "CONSOLEPLAYER MvpuoPrepareComplete(%i)", aError );
-    
+
     if( aError == KErrNone )
         {
         iVideoPlayer->AddDisplayWindow( iWs, iScreenDevice, iWindow );
@@ -315,7 +333,7 @@ void COpMaxPlayerWindow::MvpuoPrepareComplete(TInt aError)
 void COpMaxPlayerWindow::MvpuoFrameReady(CFbsBitmap& /*aFrame*/,TInt aError)
     {
     RDebug::Printf( "CONSOLEPLAYER MvpuoFrameReady(%i)", aError );
-    
+
     if( aError != KErrNone )
         {
         Error( aError );
@@ -325,7 +343,7 @@ void COpMaxPlayerWindow::MvpuoFrameReady(CFbsBitmap& /*aFrame*/,TInt aError)
 void COpMaxPlayerWindow::MvpuoPlayComplete(TInt aError)
     {
     RDebug::Printf( "CONSOLEPLAYER MvpuoPlayComplete(%i)", aError );
-    
+
     if( aError == KErrNone )
         {
         PlayComplete();
@@ -337,8 +355,8 @@ void COpMaxPlayerWindow::MvpuoPlayComplete(TInt aError)
     }
 
 void COpMaxPlayerWindow::MvpuoEvent(const TMMFEvent& aEvent)
-    {   
-    RDebug::Printf( "CONSOLEPLAYER MvpuoEvent event=%x error=%i", aEvent.iEventType.iUid, aEvent.iErrorCode );    
+    {
+    RDebug::Printf( "CONSOLEPLAYER MvpuoEvent event=%x error=%i", aEvent.iEventType.iUid, aEvent.iErrorCode );
 
     if( aEvent.iErrorCode != KErrNone )
         {
