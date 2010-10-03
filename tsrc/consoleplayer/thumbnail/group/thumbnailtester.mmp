@@ -29,23 +29,23 @@ EPOCSTACKSIZE 0x5000             //20KB
 EPOCHEAPSIZE  0x100000 0x1000000 //1MB-16MB
 
 START RESOURCE  thumbnailtester_reg.rss
-TARGETPATH 	    \private\10003a3f\apps
+TARGETPATH 	    /private/10003a3f/apps
 END 
 
-USERINCLUDE   ..\..\common
+USERINCLUDE   ../../common
 
-SOURCEPATH    ..\..\common
+SOURCEPATH    ../../common
 SOURCE        testappbase.cpp
 
-SOURCEPATH    ..\src
+SOURCEPATH    ../src
 SOURCE        thumbnailtester.cpp
 SOURCE        yuv2rgb24.cpp
 
 MW_LAYER_SYSTEMINCLUDE
-SYSTEMINCLUDE \epoc32\include
-SYSTEMINCLUDE \epoc32\include\stdapis
-USERINCLUDE   \sf\mw\helix\helix_ren\src\datatype\tools\metadataeng\common\pub
-USERINCLUDE   \sf\mw\helix\helix_ren\src\datatype\tools\metadataeng\utility\platform\symbian
+SYSTEMINCLUDE /epoc32/include
+SYSTEMINCLUDE /epoc32/include\stdapis
+USERINCLUDE   /sf/mw/helix/helix_ren/src/datatype/tools/metadataeng/common/pub
+USERINCLUDE   /sf/mw/helix/helix_ren/src/datatype/tools/metadataeng/utility/platform/symbian
 
 STATICLIBRARY hxmetadatautil.lib
 LIBRARY       flogger.lib

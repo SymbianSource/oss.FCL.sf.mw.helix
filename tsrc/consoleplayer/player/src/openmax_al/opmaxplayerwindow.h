@@ -1,3 +1,21 @@
+/*
+ * Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ * All rights reserved.
+ * This component and the accompanying materials are made available
+ * under the terms of "Eclipse Public License v1.0"
+ * which accompanies this distribution, and is available
+ * at the URL "http://www.eclipse.org/legal/epl-v10.html".
+ *
+ * Initial Contributors:
+ * Nokia Corporation - initial contribution.
+ *
+ * Contributors:
+ *
+ * Description:
+ * Source file for the main class of the ConsolePlayer test app.
+ *
+ */
+
 #ifndef __OPMAX_PLAYER_WINDOW_H__
 #define __OPMAX_PLAYER_WINDOW_H__
 
@@ -15,7 +33,7 @@ class COpMaxPlayerWindow : public CPlayerWindow
     {
 public:
 
-    static COpMaxPlayerWindow* NewL( RFs& aFs, 
+    static COpMaxPlayerWindow* NewL( RFs& aFs,
                                    RWsSession& aWs,
                                    CWsScreenDevice& aScreenDevice,
                                    const RWindowTreeNode &aParentWindow,
@@ -24,7 +42,7 @@ public:
                                    bool aTransparent,
                                    TRgb aBackgroundColor,
                                    bool aSuppressGraphicsContext);
-    
+
     virtual ~COpMaxPlayerWindow();
 
     // inherited from CPlayerWindow
@@ -48,38 +66,38 @@ public:
     virtual TInt StepBackward();
     virtual TInt SetPlayVelocity( TInt aVelocity );
     virtual TInt DoExecuteOperation( TInt aOperation );
-    virtual void InitializeParameters( TSize& aVideoSize, 
-                                       TTimeIntervalMicroSeconds& aDuration, 
-                                       TInt& aMaxVolume, 
+    virtual void InitializeParameters( TSize& aVideoSize,
+                                       TTimeIntervalMicroSeconds& aDuration,
+                                       TInt& aMaxVolume,
                                        TInt& aCurrentVolume,
                                        TInt& aBalanceCenter,
                                        TInt& aBalanceMaxLeft,
                                        TInt& aBalanceMaxRight,
-                                       TInt& aDefaultBalance, 
+                                       TInt& aDefaultBalance,
                                        TInt& aCurrentBalance );
-    virtual void SetDefaultAutoscaleMode( TAutoscaleMode aDefaultAutoscale );    
+    virtual void SetDefaultAutoscaleMode( TAutoscaleMode aDefaultAutoscale );
     virtual void PreparePlayerWithFile( RFile& aFile );
     virtual void PreparePlayerWithUrl( const TDesC& aUrl );
-    
-    
+
+
 private:
-    
+
     COpMaxPlayerWindow( RFs& aFs, RWsSession& aWs, CWsScreenDevice& aScreenDevice, bool aSuppressGraphicsContext );
-    
+
     void ConstructL( const RWindowTreeNode &aParentWindow, TPoint aTopRight, TSize aSize, bool aTransparent, TRgb aBackgroundColor );
-    
+
     // inherited from MVideoPlayerUtilityObserver
     virtual void MvpuoOpenComplete(TInt aError);
     virtual void MvpuoPrepareComplete(TInt aError);
     virtual void MvpuoFrameReady(CFbsBitmap& aFrame,TInt aError);
     virtual void MvpuoPlayComplete(TInt aError);
     virtual void MvpuoEvent(const TMMFEvent& aEvent);
-    
-    COpenMaxPlayerUtility*   iVideoPlayer;    
+
+    COpenMaxPlayerUtility*   iVideoPlayer;
     TVideoRotation          iRotation;
-    TAutoScaleType          iDefaultAutoScale;    
-    TAutoScaleType          iAutoScale;    
-  
+    TAutoScaleType          iDefaultAutoScale;
+    TAutoScaleType          iAutoScale;
+
     };
 
-#endif 
+#endif

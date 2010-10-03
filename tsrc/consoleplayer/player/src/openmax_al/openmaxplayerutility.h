@@ -1,3 +1,21 @@
+/*
+ * Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ * All rights reserved.
+ * This component and the accompanying materials are made available
+ * under the terms of "Eclipse Public License v1.0"
+ * which accompanies this distribution, and is available
+ * at the URL "http://www.eclipse.org/legal/epl-v10.html".
+ *
+ * Initial Contributors:
+ * Nokia Corporation - initial contribution.
+ *
+ * Contributors:
+ *
+ * Description:
+ * Source file for the main class of the ConsolePlayer test app.
+ *
+ */
+
 #ifndef OPENMAX_PLAYER_UTILITY_H
 #define OPENMAX_PLAYER_UTILITY_H
 
@@ -15,7 +33,7 @@ class COpenMaxPlayerUtility
 public:
     COpenMaxPlayerUtility();
     ~COpenMaxPlayerUtility();
-    
+
     void VideoFrameSize(TSize& aSize) const;
     TTimeIntervalMicroSeconds Position() const;
     TTimeIntervalMicroSeconds Duration() const;
@@ -23,7 +41,7 @@ public:
     TInt MaxVolume() const;
     TInt Balance()const;
     TVideoRotation Rotation() const;
-    
+
     void SetVolume(TInt aVolume);
     void SetBalance(TInt aBalance);
     void SetPosition(const TTimeIntervalMicroSeconds& aPosition);
@@ -31,7 +49,7 @@ public:
     void SetScaleFactor(const RWindow& aWindow, TReal32 aWidthPercentage, TReal32 aHeightPercentage);
     void SetAutoScale(const RWindow& aWindow, TAutoScaleType aScaleType);
     void StepFrame(TInt aStep);
-    
+
     void OpenFile(const TDesC& aFileName,TUid aControllerUid = KNullUid);
     void OpenUrl(const TDesC& aUrl);
     void Prepare();
@@ -54,11 +72,11 @@ public:
     void PlayPause(bool);
     void MuteChanged(bool);
     TInt SetPlayVelocity( TInt aVelocity );
-    
+
 protected:
     void StartBackLightTimer();
     void CancelBackLightTimer();
-    
+
 private:
     XAObjectItf m_engine; /* OpenMAX AL Engine */
     XAObjectItf player;
@@ -79,7 +97,7 @@ private:
     XADataLocator_OutputMix m_locator_outputmix;
     XADataLocator_NativeDisplay m_locator_displayregion;
     XADataLocator_URI uri;
-    
+
     TRect   m_displayRect;
     int     m_nVolume;
     int     m_Velocity;
